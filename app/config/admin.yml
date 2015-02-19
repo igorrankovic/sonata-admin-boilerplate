@@ -1,0 +1,12 @@
+services:
+    app.admin.book:
+        class: AppBundle\Admin\BookAdmin
+        arguments: [~, AppBundle\Entity\Book, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Library, label: Book}
+
+    app.admin.author:
+        class: AppBundle\Admin\AuthorAdmin
+        arguments: [~, AppBundle\Entity\Author, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Library, label: Author}
