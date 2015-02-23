@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use AppBundle\Traits\IdentifiableTrait;
 use AppBundle\Traits\BlameableTrait;
 use AppBundle\Traits\TimestampableTrait;
+use AppBundle\Traits\SortableTrait;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -15,7 +16,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class Book
  *
  * @Gedmo\Loggable
- * @ORM\Table(options={"charset"="utf8", "collate"="utf8_bin"})
+ * @Gedmo\SoftDeleteable(fieldName="timeDeleted", timeAware=false)
+ * @ORM\Table(options={"charset"="utf8", "collate"="utf8_general_ci"})
  * @ORM\Entity
  * @UniqueEntity(fields={"title","author"})
  */
@@ -24,6 +26,7 @@ class Book
     use IdentifiableTrait;
     use BlameableTrait;
     use TimestampableTrait;
+    use SortableTrait;
 
     /**
      * @var String

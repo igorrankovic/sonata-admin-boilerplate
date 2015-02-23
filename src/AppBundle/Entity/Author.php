@@ -15,7 +15,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class Author
  *
  * @Gedmo\Loggable
- * @ORM\Table(options={"charset"="utf8", "collate"="utf8_bin"})
+ * @Gedmo\SoftDeleteable(fieldName="timeDeleted", timeAware=false)
+ * @ORM\Table(options={"charset"="utf8", "collate"="utf8_general_ci"})
  * @ORM\Entity
  * @UniqueEntity(fields={"firstname","lastname"})
  */

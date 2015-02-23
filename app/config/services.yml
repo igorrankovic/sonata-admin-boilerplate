@@ -1,7 +1,6 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
-
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    kernel.listener.pre_soft_delete_listener:
+        class: AppBundle\EventListener\PreSoftDeleteableListener
+        arguments: ["@service_container"]
+        tags:
+            - { name: doctrine.event_listener, event: postSoftDelete }
